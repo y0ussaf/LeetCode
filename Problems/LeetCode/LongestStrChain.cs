@@ -5,8 +5,13 @@ namespace Problems.LeetCode
 {
     public class LongestStrChain
     {
+        static Dictionary<string,int> _cache = new Dictionary<string, int>();
         static int Go(string word,HashSet<string> hashSet)
         {
+            if (_cache.ContainsKey(word))
+            {
+                return _cache[word];
+            }
             if (word.Length == 1)
             {
                 return 1;
@@ -21,6 +26,8 @@ namespace Problems.LeetCode
                     ans = res > ans ? res : ans;
                 }
             }
+
+            _cache[word] = ans + 1;
             return ans + 1;
         }
         public static int Solve(string[] words)
@@ -30,19 +37,13 @@ namespace Problems.LeetCode
             {
                 hashSet.Add(word);
             }
-            Array.Sort(words,((s, s1) => s1.Length.CompareTo(s.Length)));
             
             int ans = 0;
             int res;
             foreach (var word in words)
             {
-                if (ans >= word.Length)
-                {
-                    break;
-                }
                 res = Go(word,hashSet);
                 ans = res > ans ? res : ans;
-
             }
             return ans;
         }

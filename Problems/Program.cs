@@ -13,8 +13,12 @@ namespace Problems
     {
         static void Main(string[] args)
         {
-            var t = LongestStrChain.Solve(new[] {"a", "b", "ba", "bca", "bda", "bdca"});
-            Console.WriteLine(t);
+            var t = LetterCombinationsOfPhoneNumber.Solve("23");
+            Console.WriteLine(t.Count);
+            foreach (var a in t)
+            {
+                Console.WriteLine(a);
+            }
             
         }
         
