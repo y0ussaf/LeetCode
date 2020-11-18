@@ -13,13 +13,20 @@ namespace Problems
     {
         static void Main(string[] args)
         {
-            var t = LetterCombinationsOfPhoneNumber.Solve("23");
-            Console.WriteLine(t.Count);
-            foreach (var a in t)
+            Subsets subsets = new Subsets();
+            var t = subsets.Solve(new[] {1, 2, 3});
+
+            foreach (var v in t)
             {
-                Console.WriteLine(a);
+                foreach (var a in v)
+                {
+                    Console.WriteLine(a);
+                }
+
+                Console.WriteLine("#");
             }
             
+
         }
         
     }
