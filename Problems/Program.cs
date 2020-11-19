@@ -13,20 +13,9 @@ namespace Problems
     {
         static void Main(string[] args)
         {
-            Subsets subsets = new Subsets();
-            var t = subsets.Solve(new[] {1, 2, 3});
-
-            foreach (var v in t)
-            {
-                foreach (var a in v)
-                {
-                    Console.WriteLine(a);
-                }
-
-                Console.WriteLine("#");
-            }
-            
-
+            ReverseWordsString reverseWords = new ReverseWordsString();
+            var t = reverseWords.ReverseWords("a good   example");
+            Console.WriteLine('#'+t+'#');
         }
         
     }
