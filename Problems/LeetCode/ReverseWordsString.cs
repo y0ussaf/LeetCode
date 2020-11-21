@@ -1,10 +1,12 @@
-﻿namespace Problems.LeetCode
+﻿using System.Text;
+
+namespace Problems.LeetCode
 {
     public class ReverseWordsString
     {
         public string ReverseWords(string s)
         {
-            string ans = string.Empty;
+            StringBuilder ans =new StringBuilder();
             string buffer = string.Empty;
             for (int i = s.Length -1; i >=0; i--)
             {
@@ -12,7 +14,7 @@
                 {
                     if (buffer.Length != 0)
                     {
-                        ans += ' '+ buffer ;
+                        ans.Append(' '+ buffer);
                         buffer = string.Empty;
                     }
                     
@@ -24,8 +26,8 @@
                 }
             }
 
-            ans = buffer + ans;
-            return ans.Trim();
+            ans.Append(' '+buffer);
+            return ans.ToString().TrimStart();
         }
     }
 }
